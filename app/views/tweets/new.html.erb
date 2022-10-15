@@ -1,5 +1,16 @@
+<% if @tweets.errors.present? %>
+    <p>エラーがあります。<p>
+    <ul>
+        <% @tweets.errors.full_messages.each do |msg| %>
+            <li><%= msg %></li>
+        <% end %>
+    </ul>
+<% end %>
+
 <%= form_for @tweets , url: {action: :create} do |f| %>
     <%= f.label :message, 'メッセージ：' %>
     <%= f.text_field :message %>
     <%= f.submit 'ツイート' %>
 <% end %>
+
+<br><%= link_to 'ツイート一覧に戻る', root_path %>

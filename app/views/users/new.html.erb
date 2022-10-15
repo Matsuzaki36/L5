@@ -1,3 +1,12 @@
+<% if @users.errors.present? %>
+    <p>エラーがあります。<p>
+    <ul>
+        <% @users.errors.full_messages.each do |msg| %>
+            <li><%= msg %></li>
+        <% end %>
+    </ul>
+<% end %>
+
 <%= form_for @users , url: {action: :create} do |f| %>
     <%= f.label :uid, 'ID：' %>
     <%= f.text_field :uid %>
@@ -5,3 +14,5 @@
     <%= f.text_field :pass %>
     <%= f.submit '登録' %>
 <% end %>
+
+<br><%= link_to 'ユーザー一覧に戻る', users_path %>

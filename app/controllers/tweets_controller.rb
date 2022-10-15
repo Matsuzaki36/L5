@@ -8,10 +8,12 @@ class TweetsController < ApplicationController
     end
     
     def create
-        
         @tweets = Tweet.new(message: params[:tweet][:message],  user_id: User.find_by(uid: session[:login_uid]).id)
-        @tweets.save
-        redirect_to root_path
+        if @tweets.save
+            redirect_to root_path
+        else
+            render new_tweet_path
+        end
     end
 
     def destroy
