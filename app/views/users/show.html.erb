@@ -1,0 +1,5 @@
+ユーザーID：<%= @user.uid %><br>
+プロフィール文：<%= @user.sentence %>
+
+<br><br><%= link_to '編集', "/users/#{@user.id}/edit" %>
+<br><%= link_to 'ツイート一覧に戻る', root_path %>

@@ -11,5 +11,12 @@
 
   <body>
     <%= yield %>
+    <p>
+      <% if session[:login_uid] %>
+        ログイン中(<%= User.find_by(uid: session[:login_uid]).uid %>)さん
+      <% else %>
+        ログインしてません
+      <% end %>
+    </p>
   </body>
 </html>
