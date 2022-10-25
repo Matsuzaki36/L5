@@ -12,8 +12,8 @@
   <body>
     <%= yield %>
     <p>
-      <% if session[:login_uid] %>
-        ログイン中(<%= User.find_by(uid: session[:login_uid]).uid %>)さん
+      <% if current_user %>
+        ログイン中(<%= current_user.uid %>)さん
       <% else %>
         ログインしてません
       <% end %>
